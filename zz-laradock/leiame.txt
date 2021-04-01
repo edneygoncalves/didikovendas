@@ -1,0 +1,42 @@
+Scripts feitos por Edney
+
+para rodar uma instância de Laradock
+
+fontes:
+
+Site principal
+https://laradock.io/
+
+
+Tutoriais
+06 - Ambiente Completo PHP 7 com Docker (Laradock)
+https://www.youtube.com/watch?v=6XfZLqoywz4
+
+07 - Múltiplos Projetos com Docker (Laradock)
+https://www.youtube.com/watch?v=lKhlG4xHKGM
+
+
+Melhores práticas para uma API RESTful pragmática (partes 1 e 2)
+https://desenvolvimentoparaweb.com/miscelanea/api-restful-melhores-praticas-parte-1/
+
+https://desenvolvimentoparaweb.com/miscelanea/api-restful-melhores-praticas-parte-2/
+
+
+
+
+laravel json resource
+https://www.youtube.com/watch?v=_fDd_RKKWzk
+
+
+
+
+titulo
+categoria_id (1- Procedimentos; 2- Cursos; 3- Dicas)
+fonte
+imagem (imagem crop)
+alt_imagem (legenda da imagem)
+conteudo (o que vem no summernote)
+
+description
+keywords
+tempo_leitura
