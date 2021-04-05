@@ -19,8 +19,8 @@
 
 
                   <label>Categoria| Subcategoria</label>
-                  <select class="form-control select2"  name="subcategoria_id">
-                    <option selected="selected">Selecione uma subcategoria</option>
+                  <select class="form-control select2">
+                    <option selected="selected" name="subcategoria_id">Selecione uma subcategoria</option>
                     @foreach ($categorias as $categoria)
                         @foreach ($categoria->subcategorias as $subcategoria)
                             <option value="{{ $subcategoria->id }}">{{ $categoria->name }}| {{ $subcategoria->name }}</option>

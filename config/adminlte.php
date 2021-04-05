@@ -239,6 +239,8 @@ return [
             'text'        => 'Vendas',
             'url'         => 'admin/vendas',
             'icon'        => 'far fa-fw fa-file',
+            'label'       => 4,
+            'label_color' => 'success',
         ],
         [
             'text'        => 'Encomendas',

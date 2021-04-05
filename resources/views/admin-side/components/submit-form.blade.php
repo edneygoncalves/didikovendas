@@ -26,7 +26,7 @@ $('#submitForm').submit(function(e) {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         success: function(data) {
-            if (data.cod_erro == 0) {
+            if (data.cod_erro == false) {
                 swal({
                     title: 'Sucesso!',
                     text: data.mensagem,

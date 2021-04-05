@@ -32,7 +32,7 @@ class VendaTipoTableSeeder extends Seeder
                 'icone' => 'status'
             ],
             [
-                'id' => 3,
+                'id' => 4,
                 'name' => 'Shopee',
                 'icone' => 'status'
             ],

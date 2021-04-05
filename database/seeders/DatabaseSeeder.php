@@ -17,6 +17,9 @@ class DatabaseSeeder extends Seeder
             CategoriaSubCategoriaTableSeeder::class,
             CidadeTableSeeder::class,
             FornecedorTableSeeder::class,
+            VendaTipoTableSeeder::class,
+            VendaStatusTableSeeder::class,
+            EncomendaStatusTableSeeder::class,
         ]);
     }
 }

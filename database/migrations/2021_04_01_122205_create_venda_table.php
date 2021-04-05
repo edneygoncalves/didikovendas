@@ -18,6 +18,7 @@ class CreateVendaTable extends Migration
             $table->foreignId('status_id');
             $table->foreignId('tipo_id');
             $table->foreignId('cliente_id');
+            $table->foreignId('viagem_id')->nullable();
             $table->string('name')->nullable();
             $table->string('registro')->nullable();
             $table->string('maps')->nullable();
@@ -35,9 +36,9 @@ class CreateVendaTable extends Migration
                 ->onDelete('cascade');
 
             $table->foreign('tipo_id')
-            ->references('id')
-            ->on('venda_tipo')
-            ->onDelete('cascade');
+                ->references('id')
+                ->on('venda_tipo')
+                ->onDelete('cascade');
 
             $table->foreign('cliente_id')
                 ->references('id')
@@ -45,7 +46,10 @@ class CreateVendaTable extends Migration
                 ->onDelete('cascade');
 
 
-
+            $table->foreign('viagem_id')
+                ->references('id')
+                ->on('viagem')
+                ->onDelete('set null');
         });
     }
 

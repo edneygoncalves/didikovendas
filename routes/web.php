@@ -3,6 +3,7 @@
 use App\Http\Controllers\EncomendasController;
 use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\VendasController;
+use App\Http\Controllers\ViagemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +34,8 @@ Route::prefix('admin')->group(function () {
     Route::resource('/encomendas', EncomendasController::class);
 
     Route::resource('/produtos', ProdutosController::class);
+
+    Route::resource('/viagens', ViagemController::class);
 
 
     Route::get('/quadros', [ProdutosController::class, 'quadros']);

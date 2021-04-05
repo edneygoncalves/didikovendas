@@ -1,5 +1,6 @@
 <?php
 
+
 define('ERRO_OK', 0);
 define('ERRO_NOT_FOUND', 1);
 define('ERRO_USR_EXISTS', 2);

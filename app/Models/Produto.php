@@ -59,12 +59,13 @@ class Produto extends Model
 
 
 
-    public function getFotoMobileAttribute()
+    public function getFotoAttribute()
     {
         if (!strlen($this->attributes['foto'])) {
             return null;
         }
         return \Storage::cloud()->temporaryUrl($this->attributes['foto'], \Carbon\Carbon::now()->addMinutes(1));
+
     }
 
 

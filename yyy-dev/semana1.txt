@@ -1,0 +1,41 @@
+
+[  ] - Crud Cliente
+        [ ] Index
+        [ ] Create
+        [ ] Show
+        [ ] Update
+        [ ] Delete
+
+
+[  ] - Crud Produto
+        [x] Index
+        [ ] Create
+        [ ] Show
+        [ ] Update
+        [ ] Delete
+
+
+[  ] - Crud Venda
+        [x] Index
+        [ ] Create
+        [ ] Show
+        [ ] Update
+        [ ] Delete
+
+
+[  ] - Crud Encomenda
+        [x] Index
+        [ ] Create
+        [ ] Show
+        [ ] Update
+        [ ] Delete
+
+
+[  ] - Crud Viagem
+        [x] Next
+        [ ] Index
+        [ ] Create
+        [ ] Show
+        [ ] Update
+        [ ] Delete
+

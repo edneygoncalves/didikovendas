@@ -72,7 +72,11 @@ class ProdutosController extends Controller
     public function store(Request $request)
     {
         //
-        dd($request->all());
+        $produto = new Produto($request->all());
+
+        $produto->save();
+
+        return ['erro' => false, 'produto' => $produto];
     }
 
     /**
