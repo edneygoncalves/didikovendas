@@ -22,7 +22,7 @@
                         <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
                         <div class="input-group-append">
-                            <button type="submit" class="btn .btn-sm">
+                            <button type="submit" class="btn btn-sm">
                                 <i class="fas fa-search"></i>
                             </button>
                         </div>
@@ -49,7 +49,11 @@
                             <tr>
                                 <td>{{ $viagem->id }}</td>
                                 <td>{{ $viagem->data->format('d/m/Y') }}</td>
-                                <td>-</td>
+                                <td>
+                                    <a href="{{ route('viagens.show', $viagem->id) }}">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                </td>
                             </tr>
 
                         @endforeach

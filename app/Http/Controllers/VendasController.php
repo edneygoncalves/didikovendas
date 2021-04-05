@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cliente;
+use App\Models\Fornecedor;
+use App\Models\Produto;
 use App\Models\Venda;
+use App\Models\Viagem;
 use Illuminate\Http\Request;
 
 class VendasController extends Controller
@@ -18,7 +22,7 @@ class VendasController extends Controller
         $vendas = Venda::all();
         return view('admin-side.vendas.vendas')->with([
             'vendas' => $vendas
-            ]);
+        ]);
     }
 
     /**
@@ -29,6 +33,14 @@ class VendasController extends Controller
     public function create()
     {
         //
+        $clientes = Cliente::orderBy('name')->get();
+        $viagens = Viagem::next();
+        return view('admin-side.vendas.vendas-create')->with(
+            [
+                'clientes' => $clientes,
+                'viagens' => $viagens
+            ]
+        );
     }
 
     /**
@@ -40,6 +52,10 @@ class VendasController extends Controller
     public function store(Request $request)
     {
         //
+        $venda = new Venda($request->all());
+        $venda->save();
+
+        return ['cod_erro' => false, 'venda' => $venda, 'redirect' => route('vendas.show', $venda->id) ];
     }
 
     /**
@@ -51,6 +67,12 @@ class VendasController extends Controller
     public function show(Venda $venda)
     {
         //
+
+        return view('admin-side.vendas.vendas-show')->with([
+            'venda' => $venda,
+            'produtos' => Produto::all(),
+            'fornecedores' => Fornecedor::all()
+            ]);
     }
 
     /**

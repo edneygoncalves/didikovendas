@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Encomenda
- * 
+ *
  * @property int $id
  * @property int $produto_id
  * @property int|null $fornecedor_id
@@ -27,7 +27,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
- * 
+ *
  * @property Fornecedor|null $fornecedor
  * @property Produto $produto
  * @property EncomendaStatus $encomenda_status
@@ -75,7 +75,7 @@ class Encomenda extends Model
 		return $this->belongsTo(Produto::class);
 	}
 
-	public function encomenda_status()
+	public function status()
 	{
 		return $this->belongsTo(EncomendaStatus::class, 'status_id');
 	}

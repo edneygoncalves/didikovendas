@@ -39,6 +39,12 @@ class EncomendasController extends Controller
     public function store(Request $request)
     {
         //
+        $encomenda = new Encomenda($request->all());
+
+        $encomenda->status_id = 1;
+        $encomenda->save();
+
+        return ['cod_erro' => false, 'obj' => $encomenda];
     }
 
     /**

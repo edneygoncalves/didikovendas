@@ -44,7 +44,7 @@
                                     <i class="far fa-fw fa-file "></i>
                                     <p>
                                         Viagens
-                                        <span class="badge badge-success right">
+                                        <span class="badge badge-danger right">
                                             {{ \App\Models\Viagem::next()->count() }}
                                         </span>
                                     </p>
@@ -156,18 +156,14 @@
     </div>
 
 
-    <script src="http://laradock.didiko.com/vendor/jquery/jquery.min.js"></script>
-    <script src="http://laradock.didiko.com/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="http://laradock.didiko.com/vendor/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/vendor/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 
 
 
-    <script src="http://laradock.didiko.com/vendor/adminlte/dist/js/adminlte.min.js"></script>
-
-
-
-
-
+    <script src="/vendor/adminlte/dist/js/adminlte.min.js"></script>
+    <script src="{{asset('bower_components/bootstrap/js/modal.js')}}"></script>
     @yield('js')
 
 

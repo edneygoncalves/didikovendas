@@ -27,27 +27,19 @@ $('#submitForm').submit(function(e) {
         },
         success: function(data) {
             if (data.cod_erro == false) {
-                swal({
-                    title: 'Sucesso!',
-                    text: data.mensagem,
-                    type: 'success'
-                }).then(function() {
-                    window.location.href = "{{ $redirect }}";
-                });
+
+                    if(!data.redirect){
+                        window.location.href = "{{ $redirect }}";
+                        return 1;
+                    }
+                    window.location.href = data.redirect;
             } else {
-                swal({
-                    type: 'error',
-                    title: 'Erro',
-                    text: data.mensagem
-                });
+                alert('erro');
             }
         },
         error: function(x, t, m) {
-            swal({
-                type: 'error',
-                title: 'Erro',
-                text: 'Ocorreu um erro. Tente novamente'
-            });
+
+            alert('erro');
         }
     });
 

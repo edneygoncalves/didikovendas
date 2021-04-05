@@ -1,4 +1,3 @@
-{{-- @extends('adminlte::page') --}}
 @extends('admin-side.layout-admin')
 
 @section('title', 'Vendas')
@@ -13,19 +12,11 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title"></h3>
 
-                <div class="card-tools">
-                    <div class="input-group input-group-sm" style="width: 150px;">
-                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-default">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
+                <div class="input-group input-group-sm" style="width: 150px;">
+                    <a href="{{ route('vendas.create') }}" class="btn btn-block btn-primary ">Cadastrar</a>
                 </div>
+
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0">
@@ -46,8 +37,12 @@
                                 <td>{{ $venda->id }}</td>
                                 <td>{{ $venda->cliente->name }}</td>
                                 <td>{{ $venda->encomendas()->count() }}</td>
-                                <td>{{ $venda->status }}</td>
-                                <td>{{ $venda->whatsapp }}</td>
+                                <td>{{ $venda->status->name }}</td>
+                                <td>
+                                    <a href="{{ $venda->cliente->url_whatsapp }}">
+                                    {{ $venda->cliente->whatsapp }}
+                                    </a>
+                                </td>
                             </tr>
 
                         @endforeach

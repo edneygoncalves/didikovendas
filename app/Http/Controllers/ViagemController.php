@@ -27,6 +27,7 @@ class ViagemController extends Controller
     public function create()
     {
         //
+        return \view('admin-side.viagens.viagem-create');
     }
 
     /**
@@ -37,8 +38,9 @@ class ViagemController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        //
+        $viagem = new Viagem($request->all());
+
+        return ['cod_erro' => false, 'viagem' => $viagem];
     }
 
     /**

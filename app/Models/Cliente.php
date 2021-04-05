@@ -77,5 +77,10 @@ class Cliente extends Model
     }
 
 
+    public function getUrlWhatsappAttribute()
+    {
+        $whats = preg_replace('/[^0-9]/','', $this->attributes['whatsapp']);
+        return 'https://web.whatsapp.com/send?phone=' . $whats;
+    }
 
 }

@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Venda
- * 
+ *
  * @property int $id
  * @property int $status_id
  * @property int $tipo_id
@@ -28,7 +28,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
- * 
+ *
  * @property Cliente $cliente
  * @property VendaStatus $venda_status
  * @property VendaTipo $venda_tipo
@@ -71,12 +71,12 @@ class Venda extends Model
 		return $this->belongsTo(Cliente::class);
 	}
 
-	public function venda_status()
+	public function status()
 	{
 		return $this->belongsTo(VendaStatus::class, 'status_id');
 	}
 
-	public function venda_tipo()
+	public function tipo()
 	{
 		return $this->belongsTo(VendaTipo::class, 'tipo_id');
 	}

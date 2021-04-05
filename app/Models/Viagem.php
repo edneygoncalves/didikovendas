@@ -62,4 +62,9 @@ class Viagem extends Model
 	{
 		return $this->hasMany(Venda::class);
 	}
+
+    public function setDataAttribute($data)
+    {
+        $this->attributes['data'] = Carbon::createFromFormat("d/m/Y", $data);
+    }
 }
