@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Produto
- * 
+ *
  * @property int $id
  * @property int $subcategoria_id
  * @property string $name
@@ -23,7 +23,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
- * 
+ *
  * @property ProdutoSubcategoria $produto_subcategoria
  * @property Collection|Encomenda[] $encomendas
  *
@@ -47,7 +47,7 @@ class Produto extends Model
 		'foto'
 	];
 
-	public function produto_subcategoria()
+	public function subcategoria()
 	{
 		return $this->belongsTo(ProdutoSubcategoria::class, 'subcategoria_id');
 	}
@@ -56,4 +56,23 @@ class Produto extends Model
 	{
 		return $this->hasMany(Encomenda::class);
 	}
+
+
+
+    public function getFotoMobileAttribute()
+    {
+        if (!strlen($this->attributes['foto'])) {
+            return null;
+        }
+        return \Storage::cloud()->temporaryUrl($this->attributes['foto'], \Carbon\Carbon::now()->addMinutes(1));
+    }
+
+
+    public function setFotoAttribute($img)
+    {
+        if (strlen($img) > 0)
+            $this->attributes['foto'] = \StoreBase64($img, 812);
+    }
+
+
 }

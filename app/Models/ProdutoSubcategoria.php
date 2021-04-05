@@ -12,14 +12,14 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class ProdutoSubcategoria
- * 
+ *
  * @property int $id
  * @property int $categoria_id
  * @property string $name
  * @property string $icone
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property ProdutoCategoria $produto_categoria
  * @property Collection|Produto[] $produtos
  *
@@ -39,7 +39,7 @@ class ProdutoSubcategoria extends Model
 		'icone'
 	];
 
-	public function produto_categoria()
+	public function categoria()
 	{
 		return $this->belongsTo(ProdutoCategoria::class, 'categoria_id');
 	}

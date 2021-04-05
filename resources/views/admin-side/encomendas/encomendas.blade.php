@@ -12,7 +12,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Responsive Hover Table</h3>
+                <h3 class="card-title">Encomendas do período [data início - data fim]</h3>
 
                 <div class="card-tools">
                     <div class="input-group input-group-sm" style="width: 150px;">
@@ -32,41 +32,24 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>User</th>
-                            <th>Date</th>
+                            <th>Produto</th>
+                            <th>Fornecedor</th>
+                            <th>Venda/Cliente</th> {{-- encomenda->venda->cliente --}}
                             <th>Status</th>
-                            <th>Reason</th>
+                            <th>Opções</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>183</td>
-                            <td>John Doe</td>
-                            <td>11-7-2014</td>
-                            <td><span class="tag tag-success">Approved</span></td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
-                        <tr>
-                            <td>219</td>
-                            <td>Alexander Pierce</td>
-                            <td>11-7-2014</td>
-                            <td><span class="tag tag-warning">Pending</span></td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
-                        <tr>
-                            <td>657</td>
-                            <td>Bob Doe</td>
-                            <td>11-7-2014</td>
-                            <td><span class="tag tag-primary">Approved</span></td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
-                        <tr>
-                            <td>175</td>
-                            <td>Mike Doe</td>
-                            <td>11-7-2014</td>
-                            <td><span class="tag tag-danger">Denied</span></td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
+                        @foreach ($encomendas as $encomenda)
+                            <tr>
+                                <td>{{ $encomenda->id }}</td>
+                                <td>{{ $encomenda->produto->name }}</td>
+                                <td>{{ $encomenda->fornecedor->name }}</td>
+                                <td>{{ $encomenda->nome_cliente }}</td>
+                                <td>{{ $encomenda->status->name }}</td>
+                                <td></td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

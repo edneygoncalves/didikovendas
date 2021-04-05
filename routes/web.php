@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\EncomendasController;
+use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\VendasController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,10 +26,16 @@ Route::get('/teste', function () {
 
 Route::prefix('admin')->group(function () {
 
-    Route::get('/encomendas', function () {
-        return view('admin-side.encomendas.encomendas');
-    });
+    Route::redirect('/', '/admin/vendas', 302);
 
     Route::resource('/vendas', VendasController::class);
+
+    Route::resource('/encomendas', EncomendasController::class);
+
+    Route::resource('/produtos', ProdutosController::class);
+
+
+    Route::get('/quadros', [ProdutosController::class, 'quadros']);
+    Route::get('/palhetas', [ProdutosController::class, 'palhetas']);
 
 });
