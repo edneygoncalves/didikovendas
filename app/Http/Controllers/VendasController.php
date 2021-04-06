@@ -6,6 +6,7 @@ use App\Models\Cliente;
 use App\Models\Fornecedor;
 use App\Models\Produto;
 use App\Models\Venda;
+use App\Models\VendaStatus;
 use App\Models\Viagem;
 use Illuminate\Http\Request;
 
@@ -21,6 +22,7 @@ class VendasController extends Controller
         //
         $vendas = Venda::all();
         return view('admin-side.vendas.vendas')->with([
+            'vendaStatus' => VendaStatus::all(),
             'vendas' => $vendas
         ]);
     }

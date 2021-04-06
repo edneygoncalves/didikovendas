@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Viagem;
+use App\Models\Cliente;
 use Illuminate\Http\Request;
 
-class ViagemController extends Controller
+class ClienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,11 @@ class ViagemController extends Controller
     public function index()
     {
         //
-        $viagens = Viagem::all();
-        return \view('admin-side.viagens.viagens')->with(['viagens' =>$viagens ]);
+
+        $clientes = Cliente::all();
+        return view('admin-side.clientes.clientes')->with([
+            'clientes' => $clientes
+        ]);
     }
 
     /**
@@ -27,7 +30,8 @@ class ViagemController extends Controller
     public function create()
     {
         //
-        return \view('admin-side.viagens.viagem-create');
+
+        return view('admin-side.clientes.clientes-create');
     }
 
     /**
@@ -38,33 +42,35 @@ class ViagemController extends Controller
      */
     public function store(Request $request)
     {
-        $viagem = new Viagem($request->all());
+        //
+        $cliente = new Cliente($request->all());
 
-        $viagem->save();
+        $cliente->save();
 
-        return ['cod_erro' => false, 'viagem' => $viagem];
+
+
+        return ['cod_erro' => false, 'obj' => $cliente];
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Viagem  $viagem
+     * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Cliente $cliente)
     {
         //
-        $viagem = Viagem::find($id);
-        return \view('admin-side.viagens.viagem-show')->with(['viagem' =>$viagem ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Viagem  $viagem
+     * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function edit(Viagem $viagem)
+    public function edit(Cliente $cliente)
     {
         //
     }
@@ -73,10 +79,10 @@ class ViagemController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Viagem  $viagem
+     * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Viagem $viagem)
+    public function update(Request $request, Cliente $cliente)
     {
         //
     }
@@ -84,11 +90,14 @@ class ViagemController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Viagem  $viagem
+     * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Viagem $viagem)
+    public function destroy(Cliente $cliente)
     {
         //
+        $cliente->delete();
+
+        return ['cod_erro' => false];
     }
 }

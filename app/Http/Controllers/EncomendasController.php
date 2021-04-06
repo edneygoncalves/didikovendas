@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Encomenda;
+use App\Models\EncomendaStatus;
 use Illuminate\Http\Request;
 
 class EncomendasController extends Controller
@@ -15,8 +16,10 @@ class EncomendasController extends Controller
     public function index()
     {
         $encomendas = Encomenda::all();
+        $encomendaStatus = EncomendaStatus::all();
         return view('admin-side.encomendas.encomendas')->with([
-            'encomendas' => $encomendas
+            'encomendas' => $encomendas,
+            'encomendaStatus' => $encomendaStatus
         ]);
     }
 
@@ -90,5 +93,9 @@ class EncomendasController extends Controller
     public function destroy(Encomenda $encomenda)
     {
         //
+        //
+        $encomenda->delete();
+
+        return ['cod_erro' => false];
     }
 }

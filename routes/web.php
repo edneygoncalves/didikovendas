@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EncomendasController;
 use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\VendasController;
@@ -36,6 +37,8 @@ Route::prefix('admin')->group(function () {
     Route::resource('/produtos', ProdutosController::class);
 
     Route::resource('/viagens', ViagemController::class);
+
+    Route::resource('/clientes', ClienteController::class);
 
 
     Route::get('/quadros', [ProdutosController::class, 'quadros']);

@@ -76,7 +76,7 @@ class ProdutosController extends Controller
 
         $produto->save();
 
-        return ['erro' => false, 'produto' => $produto];
+        return ['cod_erro' => false, 'produto' => $produto];
     }
 
     /**

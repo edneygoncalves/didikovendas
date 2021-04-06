@@ -80,8 +80,17 @@ class Encomenda extends Model
 		return $this->belongsTo(EncomendaStatus::class, 'status_id');
 	}
 
-	public function venda()
+	public function dados_venda()
 	{
-		return $this->belongsTo(Venda::class);
+		return $this->belongsTo(Venda::class, 'venda_id');
 	}
+
+    public function getNomeClienteAttribute()
+    {
+        return $this->dados_venda->cliente->name;
+    }
+    public function getWhatsappClienteAttribute()
+    {
+        return $this->dados_venda->cliente->url_whatsapp;
+    }
 }

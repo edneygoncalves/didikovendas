@@ -121,6 +121,17 @@
                             </a>
 
                         </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link  " href="{{ route('clientes.index') }}">
+
+                                <i class="far fa-fw fa-file "></i>
+                                <p>
+                                    Clientes
+                                </p>
+                            </a>
+
+                        </li>
                     </ul>
                 </nav>
             </div>

@@ -1,5 +1,4 @@
-@extends('adminlte::page')
-
+@extends('admin-side.layout-admin')
 @section('title', $title ?? 'Produtos')
 
 @section('content_header')
@@ -40,6 +39,7 @@
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Foto</th>
                             <th>Categoria/subcategoria</th>
                             <th>Nome</th>
                             <th>Valor</th>
@@ -51,6 +51,9 @@
 
                             <tr>
                                 <td>{{ $produto->id }}</td>
+                                <td>
+                                    <img src="{{ $produto->foto }}" class="img-circle img-size-32 mr-2">
+                                </td>
                                 <td>{{ $produto->subcategoria->categoria->name }} / {{ $produto->subcategoria->name }}</td>
                                 <td>{{ $produto->name }}</td>
                                 <td>{{ $produto->valor }}</td>

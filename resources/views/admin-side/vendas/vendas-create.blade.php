@@ -54,9 +54,12 @@
                 <div class="form-group">
                     <label>Viagem</label>
                     <select name="viagem_id" class="form-control">
-                        @foreach ($viagens as $viagem)
-                            <option value="{{ $viagem->id }}">{{ $viagem->name }}</option>
-                        @endforeach
+                        <option></option>
+                        @if ($viagens)
+                            @foreach ($viagens as $viagem)
+                                <option value="{{ $viagem->id }}">{{ $viagem->name }}</option>
+                            @endforeach
+                        @endif
                     </select>
                 </div>
 

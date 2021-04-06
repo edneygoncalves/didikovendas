@@ -28,6 +28,7 @@
                             <th>Itens(encomendas)</th>
                             <th>Status</th>
                             <th>Link Contato</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,12 +38,26 @@
                                 <td>{{ $venda->id }}</td>
                                 <td>{{ $venda->cliente->name }}</td>
                                 <td>{{ $venda->encomendas()->count() }}</td>
-                                <td>{{ $venda->status->name }}</td>
+                                <td>
+                                    {{ $venda->status->name }}
+                                    <select statusId="{{ $venda->status_id }}" class="select-status-id">
+                                        @foreach ($vendaStatus as $status)
+                                            <option value="{{ $status->id }}">{{ $status->name }}</option>
+                                        @endforeach
+
+                                    </select>
+                                </td>
                                 <td>
                                     <a href="{{ $venda->cliente->url_whatsapp }}">
                                     {{ $venda->cliente->whatsapp }}
                                     </a>
                                 </td>
+                                <td>
+                                    <a href="{{ route('vendas.show', $venda->id) }}">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                </td>
+
                             </tr>
 
                         @endforeach

@@ -14,37 +14,42 @@
 
             <form id="submitForm">
             @csrf
-                <div class="form-group">
+            {{--
+                                'name',
+                                'nome_contato',
+                                'whatsapp',
+                                'messenger_face',
+                                'foto',
+                                'cidade_id' --}}
 
-
-                  <label>Categoria| Subcategoria</label>
-                  <select class="form-control select2"  name="subcategoria_id">
-                    <option selected="selected">Selecione uma subcategoria</option>
-                    @foreach ($categorias as $categoria)
-                        @foreach ($categoria->subcategorias as $subcategoria)
-                            <option value="{{ $subcategoria->id }}">{{ $categoria->name }}| {{ $subcategoria->name }}</option>
-                        @endforeach
-                    @endforeach
-                  </select>
-
-
-                </div>
 
                 <div class="form-group">
+                    <label>Nome</label>
                     <input type="text" name="name" class="form-control" placeholder="Nome">
                 </div>
 
+                <div class="form-group">
+                    <label>Cidade</label>
+                    <select name="cidade_id">
+                        @foreach (\App\Models\Cidade::all() as $cidade)
+                            <option value="{{ $cidade->id }}">{{ $cidade->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
                 <div class="input-group mb-3">
-                    <label>Valor</label>
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">$</span>
-                    </div>
-                    <input type="text" name="valor" class="form-control" placeholder="valor atual">
+                    <label>Nome Contato</label>
+                    <input type="text" name="nome_contato" class="form-control" placeholder="Nome Contato">
                 </div>
 
                 <div class="form-group">
-                    <label>Descrição</label>
-                    <textarea class="form-control" name="descricao" rows="3" ></textarea>
+                    <label>Whatsapp</label>
+                    <input type="text" name="whatsapp" class="form-control" placeholder="Nome">
+                </div>
+
+                <div class="form-group">
+                    <label>Messenger</label>
+                    <input type="text" name="messenger_face" class="form-control" placeholder="Nome">
                 </div>
 
                 <div class="form-group">
@@ -150,8 +155,8 @@
 </script>
 
 @include('admin-side.components.submit-form',[
-    'url' => route('produtos.store'),
-    'redirect' => route('produtos.index')
+    'url' => route('clientes.store'),
+    'redirect' => route('clientes.index')
 ])
 
 

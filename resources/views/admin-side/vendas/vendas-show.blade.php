@@ -36,7 +36,10 @@
 
                             <tr>
                                 <td>{{ $encomenda->id }}</td>
-                                <td>{{ $encomenda->produto->name }}</td>
+                                <td>
+                                    <img src="{{ $encomenda->produto->foto }}" class="img-circle img-size-32 mr-2">
+                                    {{ $encomenda->produto->name }}
+                                </td>
                                 <td>{{ $encomenda->custo }}</td>
                                 <td>{{ $encomenda->venda }}</td>
                                 <td>
@@ -79,8 +82,8 @@
     'redirect' => route('vendas.show', $venda->id)
 ])
 
-@include('admin-side.components.submit-form',[
-    'url' => route('encomendas.store'),
+@include('admin-side.components.delete-item',[
+    'url' => route('encomendas.index'),
     'redirect' => route('vendas.show', $venda->id)
 ])
 

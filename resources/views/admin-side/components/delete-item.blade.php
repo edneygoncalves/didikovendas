@@ -1,15 +1,15 @@
 <script>
 
-    $('.btn-excluir-item').submit(function(e) {
+    $('.btn-excluir-item').on('click', function(e) {
 
         e.preventDefault();
 
-        var itemId = $(this).val()
+        var itemId = $(this).attr('item-id')
 
 
 
         $.ajax({
-            url: "{{ $url }}",
+            url: "{{ $url }}/" + itemId,
             type: "DELETE",
             timeout: 10000,
             processData: false,  // Important!

@@ -43,10 +43,27 @@
                         @foreach ($encomendas as $encomenda)
                             <tr>
                                 <td>{{ $encomenda->id }}</td>
-                                <td>{{ $encomenda->produto->name }}</td>
+                                <td>
+                                    <img src="{{ $encomenda->produto->foto }}" class="img-circle img-size-32 mr-2">
+                                    {{ $encomenda->produto->name }}
+                                </td>
                                 <td>{{ $encomenda->fornecedor->name }}</td>
-                                <td>{{ $encomenda->nome_cliente }}</td>
-                                <td>{{ $encomenda->status->name }}</td>
+                                <td>
+                                    {{ $encomenda->nome_cliente }}
+                                    <a href="{{ $encomenda->whatsapp_cliente }}" target="_blank">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <select statusId="{{ $encomenda->status_id }}" class="select-status-id">
+                                        @foreach ($encomendaStatus as $status)
+                                            <option value="{{ $status->id }}" {{ $encomenda->status_id == $status->id ? 'selected' : '' }}>
+                                                {{ $status->name }}
+                                            </option>
+                                        @endforeach
+
+                                    </select>
+                                </td>
                                 <td></td>
                             </tr>
                         @endforeach
