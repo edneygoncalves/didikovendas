@@ -31,7 +31,6 @@
             <div class="row mt-4 p-1">
 
 
-            @for ($i = 0; $i < 15; $i++)
 
 
             @foreach ($viagem->vendas as $venda)
@@ -79,7 +78,6 @@
             @endforeach
 
 
-            @endfor
 
             </div>
 

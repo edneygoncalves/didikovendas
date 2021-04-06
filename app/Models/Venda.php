@@ -57,6 +57,7 @@ class Venda extends Model
 		'status_id',
 		'tipo_id',
 		'cliente_id',
+		'viagem_id',
 		'name',
 		'registro',
 		'maps',
@@ -79,6 +80,11 @@ class Venda extends Model
 	public function tipo()
 	{
 		return $this->belongsTo(VendaTipo::class, 'tipo_id');
+	}
+
+	public function viagem()
+	{
+		return $this->belongsTo(Viagem::class, 'viagem_id');
 	}
 
 	public function encomendas()
