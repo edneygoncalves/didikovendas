@@ -36,15 +36,18 @@
 
 
             @foreach ($viagem->vendas as $venda)
-            <div class=".card-ficha-venda col-lg-4">
+            <div class="card-ficha-venda col-lg-4">
                 <div class="card">
-                    <div class="card-header d-flex justify-content-between bg-secondary">
+                    <div class="card-header d-flex bg-secondary">
                         <img src="{{ $venda->cliente->foto }}" class="img-circle img-size-32 mr-2">
                         <h3 class="card-title">{{ $venda->cliente->name }}</h3>
+                        @if ($venda->maps)
+                            <img class="maps-venda" src="{{ $venda->maps_qrcode }}" alt="">
+                        @endif
                     </div>
-                    <div class="d-flex">
+                    <div class="card-endereco d-flex">
                         <h3 class="card-title">Jardim Ype</h3>
-                        <a href="" target="_blank" rel="noopener noreferrer">Maps</a>
+                        <a class="link-maps" href="{{ $venda->maps }}" target="_blank" rel="noopener noreferrer">Maps</a>
 
                     </div>
 

@@ -24,3 +24,16 @@
   page-break-inside: avoid;
   page-break-before: always;
 }
+.card-ficha-venda .card .card-header .maps-venda {
+  width: 100px;
+  position: absolute;
+  left: 303px;
+}
+.card-ficha-venda .card .card-endereco {
+  padding-left: 20px;
+  padding-right: 20px;
+  justify-content: space-between;
+}
+.card-ficha-venda .card .card-endereco .link-maps {
+  padding-right: 32%;
+}

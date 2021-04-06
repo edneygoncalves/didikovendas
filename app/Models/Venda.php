@@ -91,4 +91,11 @@ class Venda extends Model
 	{
 		return $this->hasMany(Encomenda::class);
 	}
+
+    public function getMapsQrcodeAttribute()
+    {
+        return 'http://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=' . $this->attributes['maps'];
+    }
+
+
 }

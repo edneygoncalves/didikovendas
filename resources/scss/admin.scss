@@ -22,4 +22,24 @@
     display: block;
     page-break-inside: avoid;
     page-break-before: always;
+    .card{
+        .card-header{
+            .maps-venda{
+                width: 100px;
+                position: absolute;
+                left: 303px;
+            }
+        }
+        .card-endereco{
+            padding-left: 20px;
+            padding-right: 20px;
+            justify-content: space-between;
+
+            .link-maps{
+                padding-right: 32%;
+            }
+        }
+    }
 }
+
+
