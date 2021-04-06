@@ -1,0 +1,25 @@
+@media (print) {
+    .col-lg-4 {
+        max-width: 33.333333%;
+    }
+    .row {
+        display: block;
+    }
+
+    .col-lg-4 {
+        display: block;
+    }
+
+    .card {
+        display: block;
+    }
+    .header-vendas-viagem{
+        display: none;
+    }
+}
+
+.card-ficha-venda {
+    display: block;
+    page-break-inside: avoid;
+    page-break-before: always;
+}
